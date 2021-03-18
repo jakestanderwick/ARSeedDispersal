@@ -10,6 +10,17 @@ public class PlacementController : MonoBehaviour
     [SerializeField]
     private GameObject placedPrefab;
 
+    [SerializeField]
+    private GameObject instructions;
+
+    [SerializeField]
+    private Camera arCamera;
+
+    [SerializeField]
+    private ARRaycastManager aRRaycastManager;
+
+    private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
     public GameObject PlacedPrefab
     {
         get{
@@ -51,6 +62,6 @@ public class PlacementController : MonoBehaviour
 
     }
 
-    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    
 }
 
