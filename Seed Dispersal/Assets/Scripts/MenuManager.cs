@@ -21,13 +21,8 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(ExperienceTwo.name);
     }
-    //[SerializeField] Object scene;
-
-    // private void OnTriggerEnter(Collider other) 
-    // {
-    //     if (other.CompareTag("Player"))
-    //     {
-    //         SceneManager.LoadScene(scene.name);
-    //     }
-    // }
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
 }
