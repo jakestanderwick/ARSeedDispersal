@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - MapMovement
     - MenuManager
+    - MovementController
     - NewMenu
     - PlacementController
     Unity.Rider.Editor.dll:
@@ -17,6 +18,9 @@ ScriptsOnlyBuild:
     - TimelinePreferences
     - UnityEditor.Timeline.SequenceHierarchy
     - UnityEditor.Timeline.TimelineWindow
+    Unity.Timeline.dll:
+    - UnityEngine.Timeline.AnimationTrack
+    - UnityEngine.Timeline.TimelineAsset
     Unity.XR.ARCore.Editor.dll:
     - UnityEditor.XR.ARCore.ARCoreSettings
     Unity.XR.ARFoundation.dll:
@@ -33,6 +37,7 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
     - UnityEditor.Graphs.AnimatorControllerTool
@@ -76,6 +81,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 111
+      Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 11764}
     - Class: 114
@@ -87,33 +94,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12244}
     - Class: 114
-      Script: {instanceID: 12510}
+      Script: {instanceID: 12270}
     - Class: 114
-      Script: {instanceID: 12578}
+      Script: {instanceID: 12430}
     - Class: 114
-      Script: {instanceID: 12840}
+      Script: {instanceID: 12512}
     - Class: 114
-      Script: {instanceID: 12978}
+      Script: {instanceID: 12580}
     - Class: 114
-      Script: {instanceID: 13198}
+      Script: {instanceID: 12842}
     - Class: 114
-      Script: {instanceID: 13500}
+      Script: {instanceID: 12980}
     - Class: 114
-      Script: {instanceID: 13662}
+      Script: {instanceID: 13200}
     - Class: 114
-      Script: {instanceID: 13746}
+      Script: {instanceID: 13502}
     - Class: 114
-      Script: {instanceID: 13880}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13912}
+      Script: {instanceID: 13664}
     - Class: 114
-      Script: {instanceID: 14116}
+      Script: {instanceID: 13748}
     - Class: 114
-      Script: {instanceID: 14266}
+      Script: {instanceID: 13882}
     - Class: 114
-      Script: {instanceID: 14384}
+      Script: {instanceID: 13914}
     - Class: 114
-      Script: {instanceID: 38750}
+      Script: {instanceID: 14118}
+    - Class: 114
+      Script: {instanceID: 14268}
+    - Class: 114
+      Script: {instanceID: 14386}
+    - Class: 114
+      Script: {instanceID: 15300}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -135,6 +148,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 320
       Script: {instanceID: 0}
     - Class: 850595691
       Script: {instanceID: 0}
@@ -174,39 +189,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12244}
     - Class: 114
-      Script: {instanceID: 12578}
+      Script: {instanceID: 12580}
     - Class: 114
-      Script: {instanceID: 12628}
+      Script: {instanceID: 12630}
     - Class: 114
-      Script: {instanceID: 13198}
+      Script: {instanceID: 13200}
     - Class: 114
-      Script: {instanceID: 13226}
+      Script: {instanceID: 13228}
     - Class: 114
-      Script: {instanceID: 13500}
+      Script: {instanceID: 13502}
     - Class: 114
-      Script: {instanceID: 13516}
+      Script: {instanceID: 13518}
     - Class: 114
-      Script: {instanceID: 13536}
+      Script: {instanceID: 13538}
     - Class: 114
-      Script: {instanceID: 13662}
+      Script: {instanceID: 13664}
     - Class: 114
-      Script: {instanceID: 13746}
+      Script: {instanceID: 13748}
     - Class: 114
-      Script: {instanceID: 13880}
+      Script: {instanceID: 13882}
     - Class: 114
-      Script: {instanceID: 13912}
+      Script: {instanceID: 13914}
     - Class: 114
-      Script: {instanceID: 14100}
+      Script: {instanceID: 14102}
     - Class: 114
-      Script: {instanceID: 14116}
+      Script: {instanceID: 14118}
     - Class: 114
-      Script: {instanceID: 14132}
+      Script: {instanceID: 14134}
     - Class: 114
-      Script: {instanceID: 14246}
+      Script: {instanceID: 14248}
     - Class: 114
-      Script: {instanceID: 14266}
+      Script: {instanceID: 14268}
     - Class: 114
-      Script: {instanceID: 14384}
+      Script: {instanceID: 14386}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -444,6 +459,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 7e925f5ce16d9dfe65f3a299caa408fb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MapMovement
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -776,7 +797,7 @@ ScriptsOnlyBuild:
     className: ARTrackedImage
   - hash:
       serializedVersion: 2
-      Hash: c4f6c6c5a0b92774bb61e995a5f81b66
+      Hash: 50101310cb1d2d713d5d4cbbfbc12625
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlacementController
@@ -1100,10 +1121,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 8ca38520659ba5ec692abad026392cec
+      Hash: a9f9ba75fdacba03a26536c0fd8605b4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: MapMovement
+    className: MovementController
   platform: 13
   scenePathNames:
   - Assets/Scenes/UI.unity

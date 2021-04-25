@@ -10,7 +10,7 @@ public class MapMovement : PlacementController
     bool test = false;
     public Button mapSpriteUp;
     public Button mapSpriteDown;
-    public GameObject step1, step2, step3, step4, step5, step6;
+
     void Start()
     {
         mapSpriteUp.gameObject.SetActive(false);
@@ -71,10 +71,8 @@ public class MapMovement : PlacementController
     {
         if(mapDown == true)
         {
-            //mapSprite.transform.position = new Vector3 (0f, -440f, 3f);
             mapSpriteDown.gameObject.SetActive(false);
             mapSpriteUp.gameObject.SetActive(true);
-            //step1.gameObject.SetActive(true);
             if(test == true)
             {
                 step1.gameObject.SetActive(true);
@@ -85,17 +83,6 @@ public class MapMovement : PlacementController
         {
             mapSpriteDown.gameObject.SetActive(true);
             mapSpriteUp.gameObject.SetActive(false);
-            // step1.gameObject.SetActive(false);
-            // step2.gameObject.SetActive(false);
-            // step3.gameObject.SetActive(false);
-            // step4.gameObject.SetActive(false);
-            // step5.gameObject.SetActive(false);
-            // step6.gameObject.SetActive(false);
-            // float fx = mapSprite.transform.position.x + 10;
-            // float fy = mapSprite.transform.position.y + 10;
-            // float fz = mapSprite.transform.position.z + 10;
-            // mapSprite.transform.position = new Vector3(fx, fy, fz);
-            //mapSprite.transform.rotation = new Quaternion(0f,180f,0f,0f);
             mapDown = true;
         }
     }

@@ -29,6 +29,13 @@ public class PlacementController : MonoBehaviour
     public Button ButtonUp;
     //public GameObject s1, s2, s3, s4, s5, s6;
     private GameObject placedObject;
+    public GameObject MovementTest;
+    public Transform goToTarget, target, target1, target2, target3, target4, target5, target6;
+    
+    public GameObject step1, step2, step3, step4, step5, step6;
+    public float speed;
+    public bool bogBool;
+
     
 
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -47,12 +54,7 @@ public class PlacementController : MonoBehaviour
 
     void Start()
     {
-        // setOn[0] = false;
-        // setOn[1] = false;
-        // setOn[2] = false;
-        // setOn[3] = false;
-        // setOn[4] = false;
-        // setOn[5] = false;
+
     }
     void Awake()
     {
@@ -72,21 +74,8 @@ public class PlacementController : MonoBehaviour
 
     void Update()
     {
-        //arCamera.transform.position = SeedSearchPlane.transform.position;
         if(!TryGetTouchPosition(out Vector2 touchPosition))
             return;
-        
-        // if(arRaycastManager.Raycast(touchPosition, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
-        // {
-        //     var hitPose = hits[0].pose;
-
-        //     Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
-        // }
-        // float fx = arCamera.transform.position.x - 2;
-        // float fy = arCamera.transform.position.y - 2;
-        // float fz = arCamera.transform.position.z - 2;
-
-        // SeedSearchPlane.transform.position = new Vector3(fx, fy, fz);
 
         if(Input.touchCount > 0)
         {
@@ -100,50 +89,41 @@ public class PlacementController : MonoBehaviour
                 //RaycastHit hitObject;
                 if(Physics.Raycast(ray, out hitObject))
                 {
-                    if(hitObject.transform.name.Contains("SeedSearchMap"))
-                    {
-                        //onTouchHold = true;
-                        //onMapTouch = true;
-                        //ManageMap();
-                        //float fx = arCamera.transform.position.x - 2;
-                        //float fy = arCamera.transform.position.y - 2;
-                        //float fz = arCamera.transform.position.z - 2;
-                        // if(mapLowered == true)
-                        // {
-
-                        //     SeedSearchPlane.transform.position = new Vector3(0f, -0.71f, 3.65f);
-                        //     //SeedSearchPlane.transform.position = new Vector3(arCamera.transform.position.x, 1f, arCamera.transform.position.z);
-                        //     SeedSearchPlane.transform.rotation = new Quaternion(75.881f, 181.165f, 0f, 0f);
-                        //     mapLowered = false;
-                        // }
-                        // else if(mapLowered == false)
-                        // {
-                        //     SeedSearchPlane.transform.position = new Vector3(-0.043f, -1.836f, 2.207f);
-                        //     //SeedSearchPlane.transform.position = new Vector3(arCamera.transform.position.x, 2f, arCamera.transform.position.z);
-                        //     SeedSearchPlane.transform.rotation = new Quaternion(24.304f, 181.165f, 0f, 0f);
-                        //     mapLowered = true;
-                        // }
-                        Debug.Log("Made it to map switching");
-                    }
-                    // if(hitObject.transform.name.Contains("Check1"))
+                    // if(hitObject.transform.name.Contains("StartButton"))
                     // {
-                    //     //s1.gameObject.SetActive(true);
-                    //     setOn[0] = true;
+                    //     target.position = target1.position;
                     // }
-                    else{
-                        onTouchHold = true;
-                        //arCamera.transform.position = SeedSearchPlane.transform.position;
-                        //onMapTouch = true;
-                        //ManageMap();
-                        //Debug.Log("Made it to map switching");
+                    if(hitObject.transform.name.Contains("Check1Button"))
+                    {
+                        target.position = target2.position;
+                        step1.gameObject.SetActive(true);
                     }
-                    
-                    
+                    if(hitObject.transform.name.Contains("Check2Button"))
+                    {
+                        target.position = target3.position;
+                        step2.gameObject.SetActive(true);
+                    }
+                    if(hitObject.transform.name.Contains("Check3Button"))
+                    {
+                        target.position = target4.position;
+                        step3.gameObject.SetActive(true);
+                    }
+                    if(hitObject.transform.name.Contains("Check4Button"))
+                    {
+                        target.position = target5.position;
+                        step4.gameObject.SetActive(true);
+                    }
+                    if(hitObject.transform.name.Contains("Check5Button"))
+                    {
+                        target.position = target6.position;
+                        step5.gameObject.SetActive(true);
+                    }
+                    if(hitObject.transform.name.Contains("Check6Button"))
+                    {
+                        target.position = goToTarget.position;
+                        step6.gameObject.SetActive(true);
+                    }
                 }
-                // if((Physics.Raycast(ray, out hitObject) && (hitObject.collider.tag == "Draggable"))
-                // {
-                //     toDrag
-                // }
             }
             if(touch.phase == TouchPhase.Moved)
             {
@@ -153,34 +133,10 @@ public class PlacementController : MonoBehaviour
             {
                 onTouchHold = false;
             }
-
-            // if(onTouchHold)
-            // {
-            //     //placedObject.transform.position = hitPose.position;
-            //     //same with
-            // }
             if(onTouchHold)
             {
-                
                 if(hitObject.collider != null)
                 {
-                    //Vector3 pos = touchPosition;
-
-                    ////hitObject.transform.position = touch.position;
-
-
-                    //hitObject.transform.position = new Vector3(1f,1f,8f);
-                    //Debug.Log(hitObject.ToString());
-                    //hitObject.transform.position = Camera.main.ScreenToWorldPoint(touchPosition);
-
-                    // for (int i = 0; i < Input.touchCount; i++)
-                    // {
-                    //     if (Input.GetTouch(i).phase == TouchPhase.Began)
-                    //     {
-                    //         //Vector3 p = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
-                    //         hitObject.transform.position = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
-                    //     }
-                    // }
                 }
             }
             if(arRaycastManager.Raycast(touchPosition, hits))
@@ -193,44 +149,48 @@ public class PlacementController : MonoBehaviour
                 }
             }
         }
-
+        // if(bogBool == true)
+        // {
+        //     float step = speed * Time.deltaTime;
+        //     transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        // }
     }
 
-    public virtual void OnTouch()
+    IEnumerator MoveFunction(Vector3 newPosition)
     {
+        float timeSinceStarted = 0f;
+        while (MovementTest.transform.position != newPosition)
+        {
+            timeSinceStarted += Time.deltaTime;
+            MovementTest.transform.position = Vector3.Lerp(MovementTest.transform.position, newPosition, timeSinceStarted);
 
+            // If the object has arrived, stop the coroutine
+            if (MovementTest.transform.position == newPosition)
+            {
+                yield break;
+            }
+
+            // Otherwise, continue next frame
+            yield return null;
+        }
     }
+//     IEnumerator MoveTowards(Transform objectToMove, Vector3 toPosition, float duration)
+// {
+//     float counter = 0;
 
-    // void ManageMap()
-    // {
-    //     //if(onMapTouch == true)
-    //     //{
-    //         if(mapLowered == true)
-    //         {
-    //             BringUpMap();
-    //         }
-    //         if(mapLowered == false)
-    //         {
-    //             LowerMap();
-    //         }
-    //         //onMapTouch = false;
-    //     //}
-        
-    // }
-    // void BringUpMap()
-    // {
-    //     SeedSearchPlane.transform.position = new Vector3(0f, 0.38f, 6.09f);
-    //     SeedSearchPlane.transform.rotation = new Quaternion(70.352f, 181.165f, 0f, 0f);
-    //     mapLowered = false;
+//     while (counter < duration)
+//     {
+//         counter += Time.deltaTime;
+//         Vector3 currentPos = objectToMove.position;
 
-    // }
+//         float time = Vector3.Distance(currentPos, toPosition) / (duration - counter) * Time.deltaTime;
 
-    // void LowerMap()
-    // {
-    //     SeedSearchPlane.transform.position = new Vector3(-0.043f, -1.036f, 5.297f);
-    //     SeedSearchPlane.transform.rotation = new Quaternion(24.304f, 181.165f, 0f, 0f);
-    //     mapLowered = true;
-    // }
+//         objectToMove.position = Vector3.MoveTowards(currentPos, toPosition, time);
+
+//         Debug.Log(counter + " / " + duration);
+//         yield return null;
+//     }
+// }
 
     
 }
