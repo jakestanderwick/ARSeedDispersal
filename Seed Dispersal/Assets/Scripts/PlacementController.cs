@@ -34,7 +34,15 @@ public class PlacementController : MonoBehaviour
     
     public GameObject step1, step2, step3, step4, step5, step6;
     public float speed;
-    public bool bogBool;
+    public AudioClip testAudio;
+    public bool step1Bool = false;
+    public bool testBool = true;
+    public AudioController audioController;
+    public AudioSource source1;
+    public Transform flower1, flower2, flower3, flower4, flower5;
+    bool flower1Check = false, flower2Check = false, flower3Check = false, flower4Check = false, flower5Check = false;
+    int flowerInt = 0;
+    public GameObject nextIdea1;
 
     
 
@@ -54,7 +62,7 @@ public class PlacementController : MonoBehaviour
 
     void Start()
     {
-
+        //testAudio = GetComponent<AudioSource>();
     }
     void Awake()
     {
@@ -93,35 +101,73 @@ public class PlacementController : MonoBehaviour
                     // {
                     //     target.position = target1.position;
                     // }
-                    if(hitObject.transform.name.Contains("Check1Button"))
+                    // if(hitObject.transform.name.Contains("Check1Button") && !button1Check)
+                    // {
+                    //     target.position = target2.position;
+                    //     step1.gameObject.SetActive(true);
+                    //     step1Bool = true;
+                    //     button1Check = true;
+                    //     source1.gameObject.SetActive(true);
+                    //     audioController.audioSound.Play();
+                    // }
+                    // if(hitObject.transform.name.Contains("Check2Button"))
+                    // {
+                    //     target.position = target3.position;
+                    //     step2.gameObject.SetActive(true);
+                    // }
+                    // if(hitObject.transform.name.Contains("Check3Button"))
+                    // {
+                    //     target.position = target4.position;
+                    //     step3.gameObject.SetActive(true);
+                    // }
+                    // if(hitObject.transform.name.Contains("Check4Button"))
+                    // {
+                    //     target.position = target5.position;
+                    //     step4.gameObject.SetActive(true);
+                    // }
+                    // if(hitObject.transform.name.Contains("Check5Button"))
+                    // {
+                    //     target.position = target6.position;
+                    //     step5.gameObject.SetActive(true);
+                    // }
+                    // if(hitObject.transform.name.Contains("Check6Button"))
+                    // {
+                    //     target.position = goToTarget.position;
+                    //     step6.gameObject.SetActive(true);
+                    // }
+                    if(hitObject.transform.name.Contains("Flower1") && !flower1Check)
                     {
-                        target.position = target2.position;
-                        step1.gameObject.SetActive(true);
+                        target.position = flower1.position;
+                        flower1Check = true;
+                        flowerInt++;
                     }
-                    if(hitObject.transform.name.Contains("Check2Button"))
+                    if(hitObject.transform.name.Contains("Flower2") && !flower2Check)
                     {
-                        target.position = target3.position;
-                        step2.gameObject.SetActive(true);
+                        target.position = flower2.position;
+                        flower2Check = true;
+                        flowerInt++;
                     }
-                    if(hitObject.transform.name.Contains("Check3Button"))
+                    if(hitObject.transform.name.Contains("Flower3") && !flower3Check)
                     {
-                        target.position = target4.position;
-                        step3.gameObject.SetActive(true);
+                        target.position = flower3.position;
+                        flower3Check = true;
+                        flowerInt++;
                     }
-                    if(hitObject.transform.name.Contains("Check4Button"))
+                    if(hitObject.transform.name.Contains("Flower4") && !flower4Check)
                     {
-                        target.position = target5.position;
-                        step4.gameObject.SetActive(true);
+                        target.position = flower4.position;
+                        flower4Check = true;
+                        flowerInt++;
                     }
-                    if(hitObject.transform.name.Contains("Check5Button"))
+                    if(hitObject.transform.name.Contains("Flower5") && !flower5Check)
                     {
-                        target.position = target6.position;
-                        step5.gameObject.SetActive(true);
+                        target.position = flower5.position;
+                        flower5Check = true;
+                        flowerInt++;
                     }
-                    if(hitObject.transform.name.Contains("Check6Button"))
+                    if(flowerInt == 5)
                     {
-                        target.position = goToTarget.position;
-                        step6.gameObject.SetActive(true);
+                        nextIdea1.gameObject.SetActive(true);
                     }
                 }
             }
