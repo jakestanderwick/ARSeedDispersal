@@ -27,11 +27,9 @@ public class PlacementController : MonoBehaviour
     public GameObject SeedSearchPlane;
     public GameObject debugDemo;
     public Button ButtonUp;
-    //public GameObject s1, s2, s3, s4, s5, s6;
     private GameObject placedObject;
     public GameObject MovementTest;
     public Transform goToTarget, target, target1, target2, target3, target4, target5, target6;
-    
     public GameObject step1, step2, step3, step4, step5, step6;
     public float speed;
     public AudioClip testAudio;
@@ -43,6 +41,13 @@ public class PlacementController : MonoBehaviour
     bool flower1Check = false, flower2Check = false, flower3Check = false, flower4Check = false, flower5Check = false;
     int flowerInt = 0;
     public GameObject nextIdea1;
+    public GameObject pollenObj;
+    public Transform flyOverPosition, pollenBegin, pollenEnd;
+    bool flowerSectionDone = false;
+    Quaternion beeRotation;
+    public GameObject beeParent;
+    public GameObject flower1Pollen, flower2Pollen, flower3Pollen, flower4Pollen, flower5Pollen;
+    public bool seedBegin = false;
 
     
 
@@ -62,7 +67,7 @@ public class PlacementController : MonoBehaviour
 
     void Start()
     {
-        //testAudio = GetComponent<AudioSource>();
+
     }
     void Awake()
     {
@@ -94,80 +99,59 @@ public class PlacementController : MonoBehaviour
             if(touch.phase == TouchPhase.Began)
             {
                 Ray ray = arCamera.ScreenPointToRay(touchPosition);
-                //RaycastHit hitObject;
                 if(Physics.Raycast(ray, out hitObject))
                 {
-                    // if(hitObject.transform.name.Contains("StartButton"))
-                    // {
-                    //     target.position = target1.position;
-                    // }
-                    // if(hitObject.transform.name.Contains("Check1Button") && !button1Check)
-                    // {
-                    //     target.position = target2.position;
-                    //     step1.gameObject.SetActive(true);
-                    //     step1Bool = true;
-                    //     button1Check = true;
-                    //     source1.gameObject.SetActive(true);
-                    //     audioController.audioSound.Play();
-                    // }
-                    // if(hitObject.transform.name.Contains("Check2Button"))
-                    // {
-                    //     target.position = target3.position;
-                    //     step2.gameObject.SetActive(true);
-                    // }
-                    // if(hitObject.transform.name.Contains("Check3Button"))
-                    // {
-                    //     target.position = target4.position;
-                    //     step3.gameObject.SetActive(true);
-                    // }
-                    // if(hitObject.transform.name.Contains("Check4Button"))
-                    // {
-                    //     target.position = target5.position;
-                    //     step4.gameObject.SetActive(true);
-                    // }
-                    // if(hitObject.transform.name.Contains("Check5Button"))
-                    // {
-                    //     target.position = target6.position;
-                    //     step5.gameObject.SetActive(true);
-                    // }
-                    // if(hitObject.transform.name.Contains("Check6Button"))
-                    // {
-                    //     target.position = goToTarget.position;
-                    //     step6.gameObject.SetActive(true);
-                    // }
                     if(hitObject.transform.name.Contains("Flower1") && !flower1Check)
                     {
                         target.position = flower1.position;
                         flower1Check = true;
+                        flower1Pollen.SetActive(false);
                         flowerInt++;
                     }
                     if(hitObject.transform.name.Contains("Flower2") && !flower2Check)
                     {
                         target.position = flower2.position;
                         flower2Check = true;
+                        flower2Pollen.SetActive(false);
                         flowerInt++;
                     }
                     if(hitObject.transform.name.Contains("Flower3") && !flower3Check)
                     {
                         target.position = flower3.position;
                         flower3Check = true;
+                        flower3Pollen.SetActive(false);
                         flowerInt++;
                     }
                     if(hitObject.transform.name.Contains("Flower4") && !flower4Check)
                     {
                         target.position = flower4.position;
                         flower4Check = true;
+                        flower4Pollen.SetActive(false);
                         flowerInt++;
                     }
                     if(hitObject.transform.name.Contains("Flower5") && !flower5Check)
                     {
                         target.position = flower5.position;
                         flower5Check = true;
+                        flower5Pollen.SetActive(false);
                         flowerInt++;
                     }
-                    if(flowerInt == 5)
+                    if(flowerInt == 5 && flowerSectionDone == false)
                     {
+                        step1.SetActive(true);
                         nextIdea1.gameObject.SetActive(true);
+                        flowerSectionDone = true;
+                    }
+                    if(hitObject.transform.name.Contains("Check2"))
+                    {
+                        beeParent.transform.rotation = new Quaternion(0f, 40f, 0f, 0f);
+                        target.position = flyOverPosition.position;
+                        pollenObj.gameObject.SetActive(true);
+                        step2.SetActive(true);
+                    }
+                    if(hitObject.transform.name.Contains("Check4Button"))
+                    {
+                        seedBegin = true;
                     }
                 }
             }
@@ -195,11 +179,6 @@ public class PlacementController : MonoBehaviour
                 }
             }
         }
-        // if(bogBool == true)
-        // {
-        //     float step = speed * Time.deltaTime;
-        //     transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-        // }
     }
 
     IEnumerator MoveFunction(Vector3 newPosition)
@@ -220,24 +199,5 @@ public class PlacementController : MonoBehaviour
             yield return null;
         }
     }
-//     IEnumerator MoveTowards(Transform objectToMove, Vector3 toPosition, float duration)
-// {
-//     float counter = 0;
-
-//     while (counter < duration)
-//     {
-//         counter += Time.deltaTime;
-//         Vector3 currentPos = objectToMove.position;
-
-//         float time = Vector3.Distance(currentPos, toPosition) / (duration - counter) * Time.deltaTime;
-
-//         objectToMove.position = Vector3.MoveTowards(currentPos, toPosition, time);
-
-//         Debug.Log(counter + " / " + duration);
-//         yield return null;
-//     }
-// }
-
-    
 }
 

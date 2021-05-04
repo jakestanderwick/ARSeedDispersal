@@ -34,15 +34,12 @@ public class MovementController : PlacementController
         
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+
         
-        // if(transform.position == target.position)
+        
+        // if(transform.position == flyOverPosition.position)
         // {
-        //     target.position = target2.position;
-        // }
-        // while(playBool == true)
-        // {
-        //     float step2 = speed * Time.deltaTime;
-        //     transform.position = Vector3.MoveTowards(transform.position, target2.position, step2);
+        //     target.position = flower1.position;
         // }
     }
 }
