@@ -107,6 +107,7 @@ public class PlacementController : MonoBehaviour
                         flower1Check = true;
                         flower1Pollen.SetActive(false);
                         flowerInt++;
+                        //step1.gameObject.SetActive(true);
                     }
                     if(hitObject.transform.name.Contains("Flower2") && !flower2Check)
                     {
@@ -114,6 +115,7 @@ public class PlacementController : MonoBehaviour
                         flower2Check = true;
                         flower2Pollen.SetActive(false);
                         flowerInt++;
+                        //step2.gameObject.SetActive(true);
                     }
                     if(hitObject.transform.name.Contains("Flower3") && !flower3Check)
                     {
@@ -121,6 +123,7 @@ public class PlacementController : MonoBehaviour
                         flower3Check = true;
                         flower3Pollen.SetActive(false);
                         flowerInt++;
+                        //step3.gameObject.SetActive(true);
                     }
                     if(hitObject.transform.name.Contains("Flower4") && !flower4Check)
                     {
@@ -128,6 +131,7 @@ public class PlacementController : MonoBehaviour
                         flower4Check = true;
                         flower4Pollen.SetActive(false);
                         flowerInt++;
+                        //step4.SetActive(true);
                     }
                     if(hitObject.transform.name.Contains("Flower5") && !flower5Check)
                     {
@@ -138,7 +142,7 @@ public class PlacementController : MonoBehaviour
                     }
                     if(flowerInt == 5 && flowerSectionDone == false)
                     {
-                        step1.SetActive(true);
+                        //step1.SetActive(true);
                         nextIdea1.gameObject.SetActive(true);
                         flowerSectionDone = true;
                     }
@@ -147,7 +151,7 @@ public class PlacementController : MonoBehaviour
                         beeParent.transform.rotation = new Quaternion(0f, 40f, 0f, 0f);
                         target.position = flyOverPosition.position;
                         pollenObj.gameObject.SetActive(true);
-                        step2.SetActive(true);
+                        //step2.SetActive(true);
                     }
                     if(hitObject.transform.name.Contains("Check4Button"))
                     {

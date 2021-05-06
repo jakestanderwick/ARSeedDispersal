@@ -2,11 +2,13 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AudioController
+    - BadgerMovement
     - MapMovement
     - MenuManager
     - MovementController
     - NewMenu
     - PlacementController
+    - SeedMovement
     - SeedStart
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -44,8 +46,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -86,9 +90,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 82
       Script: {instanceID: 0}
     - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -137,11 +147,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14128}
     - Class: 114
+      Script: {instanceID: 14144}
+    - Class: 114
       Script: {instanceID: 14176}
     - Class: 114
       Script: {instanceID: 14280}
     - Class: 114
       Script: {instanceID: 14398}
+    - Class: 114
+      Script: {instanceID: 42604}
+    - Class: 114
+      Script: {instanceID: 261590}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -155,6 +171,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -478,7 +498,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: d4617a408d5af7df2a03d3598fe39f0f
+      Hash: aadd0888f16a5061e90c9e216eeeb69d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapMovement
@@ -568,7 +588,7 @@ ScriptsOnlyBuild:
     className: Benchmark01
   - hash:
       serializedVersion: 2
-      Hash: de2d3557374d2694ccc56718f2a4fa48
+      Hash: 252ff86876ac85a63fd47e626213613c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioController
@@ -1166,6 +1186,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 3621216d0d3fe21b3b35cae4d68e13d3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SeedMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 1ccf254e405f6294d6c7b85b87322752
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BadgerMovement
   platform: 13
   scenePathNames:
   - Assets/Scenes/UI.unity

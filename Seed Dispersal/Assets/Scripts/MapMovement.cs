@@ -10,73 +10,26 @@ public class MapMovement : PlacementController
     bool test = false;
     public Button mapSpriteUp;
     public Button mapSpriteDown;
+    bool vocabDown = true;
+    public Button vocabSpriteDown;
+    public Button vocabSpriteUp;
 
     void Start()
     {
-        mapSpriteUp.gameObject.SetActive(false);
-    }
-    bool TryGetTouchPosition(out Vector2 touchPosition)
-    {
-        if(Input.touchCount > 0)
-        {
-            touchPosition = Input.GetTouch(0).position;
-            return true;
-        }
-        touchPosition = default;
-        return false;
-    }
-    void Update()
-    {
-        if(!TryGetTouchPosition(out Vector2 touchPosition))
-            return;
-
-        if(Input.touchCount > 0)
-        {
-            Debug.Log(Input.touchCount);
-            Touch touch = Input.GetTouch(0);
-            touchPosition = touch.position;
-
-            if(touch.phase == TouchPhase.Began)
-            {
-                Ray ray = arCamera.ScreenPointToRay(touchPosition);
-                if(Physics.Raycast(ray, out hitObject))
-                {
-                    if(hitObject.transform.name.Contains("Check1"))
-                    {
-                        mapSpriteDown.gameObject.SetActive(false);
-                        mapSpriteUp.gameObject.SetActive(true);
-                    }
-                    onTouchHold = true;
-                }
-            }
-            if(touch.phase == TouchPhase.Moved)
-            {
-                touchPosition = touch.position;
-            }
-            if(touch.phase == TouchPhase.Ended)
-            {
-                onTouchHold = false;
-            }
-            if(onTouchHold)
-            { 
-                if(hitObject.collider != null)
-                {
-                    hitObject.transform.position = touch.position;
-                }
-            }
-        }
+        //mapSpriteUp.gameObject.SetActive(false);
+        //vocabSpriteUp.gameObject.SetActive(false);
     }
 
     public void MapController()
     {
-        if(mapDown == true)
+        if(mapDown == true && vocabDown == true)
         {
             mapSpriteDown.gameObject.SetActive(false);
             mapSpriteUp.gameObject.SetActive(true);
-            if(test == true)
-            {
-                step1.gameObject.SetActive(true);
-            }
+            // if(test == true)
+            // {
+            //     step1.gameObject.SetActive(true);
+            // }
             mapDown = false;
         }
         else if(mapDown == false)
@@ -84,6 +37,21 @@ public class MapMovement : PlacementController
             mapSpriteDown.gameObject.SetActive(true);
             mapSpriteUp.gameObject.SetActive(false);
             mapDown = true;
+        }
+    }
+    public void VocabController()
+    {
+        if(vocabDown == true && mapDown == true)
+        {
+            vocabSpriteDown.gameObject.SetActive(false);
+            vocabSpriteUp.gameObject.SetActive(true);
+            vocabDown = false;
+        }
+        else if(vocabDown == false)
+        {
+            vocabSpriteDown.gameObject.SetActive(true);
+            vocabSpriteUp.gameObject.SetActive(false);
+            vocabDown = true;
         }
     }
 }
